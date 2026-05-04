@@ -1,0 +1,13 @@
+{
+  "name": "reikiflow-theme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/dist/css/theme.css",
+    "watch:css": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/dist/css/theme.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}
