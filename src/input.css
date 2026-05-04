@@ -5,3 +5,104 @@
 @source "../patterns/**/*";
 @source "../**/*.php";
 @source "../**/*.js";
+
+@theme {
+  --color-reiki-base: #ffffff;
+  --color-reiki-contrast: #1f2937;
+  --color-reiki-primary: #8b5cf6;
+  --color-reiki-primary-light: #a78bfa;
+  --color-reiki-secondary: #c4b5fd;
+  --color-reiki-muted: #f3f4f6;
+  --color-reiki-dark: #0f172a;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-serif: 'Cardo', serif;
+}
+
+.site-header {
+  @apply bg-reiki-base border-b border-reiki-muted sticky top-0 z-50;
+}
+
+.site-header .site-logo img {
+  @apply h-auto max-w-none;
+}
+
+.header-actions {
+  @apply flex items-center gap-6;
+}
+
+.header-actions .wp-block-navigation {
+  @apply gap-6;
+}
+
+.header-actions .wp-block-navigation .wp-block-navigation-item__content {
+  @apply font-heading text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+}
+
+.lang-switch {
+  @apply flex items-center gap-2 font-heading text-sm;
+}
+
+.lang-link {
+  @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+}
+
+.lang-link.is-active {
+  @apply text-reiki-primary font-semibold;
+}
+
+.lang-separator {
+  @apply text-reiki-muted;
+}
+
+.site-footer {
+  @apply bg-reiki-muted text-reiki-contrast;
+}
+
+.footer-columns {
+  @apply flex flex-wrap justify-between gap-8;
+}
+
+.footer-col {
+  @apply flex flex-col gap-2 min-w-[200px] flex-1;
+}
+
+.footer-heading {
+  @apply font-heading text-sm uppercase tracking-wider text-reiki-contrast mb-2;
+}
+
+.footer-col a {
+  @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+}
+
+.footer-legal,
+.footer-copyright {
+  @apply text-sm text-center text-reiki-contrast;
+}
+
+.footer-legal a {
+  @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+}
+
+.footer-newsletter-placeholder {
+  @apply text-sm text-reiki-contrast;
+}
+
+.wp-block-separator.is-style-wide {
+  @apply border-reiki-muted max-w-full;
+}
+
+@media (max-width: 768px) {
+  .header-actions {
+    @apply flex-col items-end gap-4;
+  }
+
+  .footer-columns {
+    @apply flex-col gap-8;
+  }
+
+  .footer-col {
+    @apply min-w-full;
+  }
+}
