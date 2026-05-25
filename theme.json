@@ -149,6 +149,14 @@
     "blocks": {}
   },
   "styles": {
+    "spacing": {
+      "padding": {
+        "top": "0",
+        "right": "clamp(1.5rem, 4vw, 3rem)",
+        "bottom": "0",
+        "left": "clamp(1.5rem, 4vw, 3rem)"
+      }
+    },
     "typography": {
       "fontFamily": "var(--wp--preset--font-family--body)"
     },
