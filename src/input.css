@@ -20,6 +20,10 @@
   --font-serif: 'Cardo', serif;
 }
 
+/* ============================================================
+   HEADER
+   ============================================================ */
+
 .site-header {
   @apply bg-reiki-base border-b border-reiki-muted sticky top-0 z-50;
 }
@@ -28,17 +32,60 @@
   @apply h-auto max-w-none;
 }
 
+/* Sticky header offset — push content below */
+.editor-styles-wrapper .site-header + .site-content,
+.site-header-wrapper + .site-content {
+  @apply pt-0;
+}
+
+/* ============================================================
+   HEADER ACTIONS (nav + lang switch)
+   ============================================================ */
+
 .header-actions {
   @apply flex items-center gap-6;
 }
+
+/* ----- Navigation desktop ----- */
 
 .header-actions .wp-block-navigation {
   @apply gap-6;
 }
 
 .header-actions .wp-block-navigation .wp-block-navigation-item__content {
-  @apply font-heading text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+  @apply font-heading text-reiki-contrast no-underline hover:text-reiki-primary transition-colors text-sm;
 }
+
+/* Navigation current page / ancestor */
+.header-actions .wp-block-navigation .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content,
+.header-actions .wp-block-navigation .wp-block-navigation-item.current-menu-ancestor > .wp-block-navigation-item__content {
+  @apply text-reiki-primary font-semibold;
+}
+
+/* ----- Dropdown / Submenu ----- */
+
+.wp-block-navigation__submenu-container {
+  @apply bg-reiki-base border border-reiki-muted shadow-lg rounded-sm p-2 min-w-[200px];
+  z-index: 100;
+}
+
+.wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+  @apply text-sm px-3 py-2 block rounded-sm;
+}
+
+.wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
+  @apply bg-reiki-muted text-reiki-primary;
+}
+
+/* Submenu arrow indicator */
+.wp-block-navigation-item.has-child > .wp-block-navigation-item__content::after {
+  content: " ▾";
+  font-size: 0.75em;
+}
+
+/* ============================================================
+   LANGUAGE SWITCH
+   ============================================================ */
 
 .lang-switch {
   @apply flex items-center gap-2 font-heading text-sm;
@@ -55,6 +102,41 @@
 .lang-separator {
   @apply text-reiki-muted;
 }
+
+/* ============================================================
+   MOBILE NAV (hamburger)
+   ============================================================ */
+
+/* Responsive nav button — hamburger icon */
+.wp-block-navigation__responsive-container-open,
+.wp-block-navigation__responsive-container-close {
+  @apply text-reiki-contrast;
+}
+
+.wp-block-navigation__responsive-container-open svg,
+.wp-block-navigation__responsive-container-close svg {
+  @apply w-6 h-6;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open {
+  @apply bg-reiki-base;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+  @apply items-center gap-4 py-8;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+  @apply text-lg font-heading text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
+  @apply border-none shadow-none bg-transparent p-0;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
 
 .site-footer {
   @apply bg-reiki-muted text-reiki-contrast;
@@ -85,13 +167,39 @@
   @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
 }
 
-.footer-newsletter-placeholder {
-  @apply text-sm text-reiki-contrast;
-}
+/* ============================================================
+   PATTERNS / COMMON
+   ============================================================ */
 
 .wp-block-separator.is-style-wide {
   @apply border-reiki-muted max-w-full;
 }
+
+/* Details / FAQ accordion */
+.wp-block-details {
+  @apply border-b border-reiki-muted py-4;
+}
+
+.wp-block-details summary {
+  @apply font-heading text-reiki-contrast cursor-pointer font-medium py-2;
+}
+
+.wp-block-details summary:hover {
+  @apply text-reiki-primary;
+}
+
+.wp-block-details[open] summary {
+  @apply text-reiki-primary;
+}
+
+/* Cover / CTA — ensure text is readable */
+.wp-block-cover .wp-block-cover__inner-container {
+  @apply w-full;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
 @media (max-width: 768px) {
   .header-actions {
