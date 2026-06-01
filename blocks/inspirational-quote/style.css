@@ -1,0 +1,27 @@
+.wp-block-reikiflow-inspirational-quote {
+  background-color: var(--wp--preset--color--muted, rgba(131, 195, 208, 0.45));
+  padding: var(--wp--preset--spacing--120, 3rem) var(--wp--preset--spacing--40, 1rem);
+  text-align: center;
+}
+
+.wp-block-reikiflow-inspirational-quote .wp-block-quote {
+  max-width: var(--wp--style--global--wide-size, 1200px);
+  margin: 0 auto;
+  border: none;
+}
+
+.wp-block-reikiflow-inspirational-quote .wp-block-quote p {
+  font-family: var(--wp--preset--font-family--heading, 'Montserrat', sans-serif);
+  font-size: var(--wp--preset--font-size--base, 1rem);
+  line-height: 1.4;
+  font-style: italic;
+  color: inherit;
+}
+
+.wp-block-reikiflow-inspirational-quote .wp-block-quote cite {
+  font-family: var(--wp--preset--font-family--heading, 'Montserrat', sans-serif);
+  font-size: var(--wp--preset--font-size--base, 1rem);
+  font-style: normal;
+  opacity: 0.8;
+  color: inherit;
+}

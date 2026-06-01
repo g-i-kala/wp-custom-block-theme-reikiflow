@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "reikiflow/inspirational-quote",
+  "title": "Inspirational Quote",
+  "category": "reikiflow",
+  "icon": "format-quote",
+  "description": "Centered full-width quote block with background highlighting.",
+  "keywords": ["quote", "testimonial", "citation", "inspirational"],
+  "version": "1.0.0",
+  "textdomain": "reikiflow",
+  "attributes": {
+    "quoteText": {
+      "type": "string",
+      "default": ""
+    },
+    "citation": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "align": ["full"],
+    "html": false,
+    "color": {
+      "background": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}

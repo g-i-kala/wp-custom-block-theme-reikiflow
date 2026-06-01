@@ -29,7 +29,7 @@ add_action('after_setup_theme', 'reikiflow_setup');
  */
 function reikiflow_register_blocks()
 {
-    $blocks_dir = get_theme_file_path('assets/dist/blocks');
+    $blocks_dir = get_theme_file_path('blocks');
 
     if (!is_dir($blocks_dir)) {
         return;
