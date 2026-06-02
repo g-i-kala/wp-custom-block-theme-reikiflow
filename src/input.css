@@ -25,7 +25,7 @@
    ============================================================ */
 
 .site-header {
-  @apply bg-reiki-base border-b border-reiki-muted sticky top-0 z-50;
+  @apply bg-reiki-base sticky top-0 z-50;
 }
 
 .site-header .site-logo img {

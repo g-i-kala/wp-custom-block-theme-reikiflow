@@ -1,6 +1,6 @@
 .wp-block-reikiflow-inspirational-quote {
   background-color: var(--wp--preset--color--muted, rgba(131, 195, 208, 0.45));
-  padding: var(--wp--preset--spacing--120, 3rem) var(--wp--preset--spacing--40, 1rem);
+  padding: var(--wp--preset--spacing--40, 1rem) var(--wp--preset--spacing--40, 1rem);
   text-align: center;
 }
 
