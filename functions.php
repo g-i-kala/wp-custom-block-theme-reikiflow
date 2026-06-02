@@ -170,9 +170,9 @@ function reikiflow_newsletter_form_shortcode()
 {
     $current_locale = determine_locale();
     $is_english     = ($current_locale === 'en_US');
-    $form_id        = $is_english ? 5 : 7;
+    $form_id        = $is_english ? 1 : 2;
 
-    return sprintf('[ws_form id="%d"]', $form_id);
+    return do_shortcode(sprintf('[ws_form id="%d"]', $form_id));
 }
 add_shortcode('reikiflow_newsletter', 'reikiflow_newsletter_form_shortcode');
 
@@ -180,8 +180,17 @@ function reikiflow_contact_form_shortcode()
 {
     $current_locale = determine_locale();
     $is_english     = ($current_locale === 'en_US');
-    $form_id        = $is_english ? 1 : 2;
+    $form_id        = $is_english ? 3 : 4;
 
-    return sprintf('[ws_form id="%d"]', $form_id);
+    return do_shortcode(sprintf('[ws_form id="%d"]', $form_id));
 }
 add_shortcode('reikiflow_contact_form', 'reikiflow_contact_form_shortcode');
+
+
+/**
+ * ---------------------------------------------------------------------------
+ * Require plugins
+ * ---------------------------------------------------------------------------
+ */
+
+require_once get_theme_file_path('inc/plugins.php');
