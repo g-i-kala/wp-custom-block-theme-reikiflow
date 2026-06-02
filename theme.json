@@ -38,22 +38,22 @@
         },
         {
           "slug": "primary",
-          "color": "#8b5cf6",
+          "color": "#83c3d0",
           "name": "Primary"
         },
         {
           "slug": "secondary",
-          "color": "#c4b5fd",
+          "color": "#f8fbc3",
           "name": "Secondary"
         },
         {
           "slug": "accent",
-          "color": "#a78bfa",
+          "color": "#1a4c43",
           "name": "Accent"
         },
         {
           "slug": "muted",
-          "color": "rgba(131,195,208,0.45)",
+          "color": "#83c3d073",
           "name": "Muted"
         }
       ]

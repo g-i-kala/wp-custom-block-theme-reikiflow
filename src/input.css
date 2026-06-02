@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @source "../templates/**/*.html";
 @source "../parts/**/*.html";
@@ -57,8 +57,14 @@
 }
 
 /* Navigation current page / ancestor */
-.header-actions .wp-block-navigation .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content,
-.header-actions .wp-block-navigation .wp-block-navigation-item.current-menu-ancestor > .wp-block-navigation-item__content {
+.header-actions
+  .wp-block-navigation
+  .wp-block-navigation-item.current-menu-item
+  > .wp-block-navigation-item__content,
+.header-actions
+  .wp-block-navigation
+  .wp-block-navigation-item.current-menu-ancestor
+  > .wp-block-navigation-item__content {
   @apply text-reiki-primary font-semibold;
 }
 
@@ -79,7 +85,7 @@
 
 /* Submenu arrow indicator */
 .wp-block-navigation-item.has-child > .wp-block-navigation-item__content::after {
-  content: " ▾";
+  content: ' ▾';
   font-size: 0.75em;
 }
 
@@ -163,7 +169,8 @@
   @apply text-sm text-center text-reiki-contrast;
 }
 
-.footer-legal a {
+.footer-legal a,
+.footer-copyright a {
   @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
 }
 
