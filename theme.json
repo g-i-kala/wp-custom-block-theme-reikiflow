@@ -328,6 +328,14 @@
       }
     },
     "blocks": {
+      "core/heading": {
+        "spacing": {
+          "margin": {
+            "top": "0",
+            "bottom": "0.5em"
+          }
+        }
+      },
       "core/button": {
         "border": {
           "bottom": {

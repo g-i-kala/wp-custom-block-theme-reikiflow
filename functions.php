@@ -4,12 +4,18 @@ if (! defined('ABSPATH')) {
     exit;
 }
 
-// Functions for the ReikiFlow theme.
-// @package reikiflow
-// @author  karo_ej
-// @license GNU General Public License v2 or later
+/**
+ * Functions for the Reikiflow theme
+ *
+ * @package reikiflow
+ * @author  karo_ej
+ * @license GNU General Public License v2 or later
+ *
+ */
 
-// Theme setup.
+/**
+ * Theme setup.
+ */
 function reikiflow_setup()
 {
     register_nav_menus(
@@ -25,113 +31,61 @@ function reikiflow_setup()
         )
     );
 
+
     add_editor_style(
         array(
-            'style.css',
-            // Disable this if you do not want to include the CSS framework in the editor.
-            // 'assets/css/css-framework.css',
-            // Disable this if you do not want to include the Font Icons CSS in the editor.
-            'assets/css/icon-fonts.css',
+            './style.css',
+            // Disable this if you don't want to include the CSS Framework in the editor - see my tutorial here: https://jakson.co/css-framework-tutorial
+            //'/assets/css/css-framework.css',
+            // Disable this if you don't want to include the Font Icons CSS in the editor - see my tutorial here: https://jakson.co/button-font-icons-tutorial
+            '/assets/css/icon-fonts.css'
         )
     );
 
+
     remove_theme_support('core-block-patterns');
+
 }
 add_action('after_setup_theme', 'reikiflow_setup');
 
-// Enqueue front-end theme assets.
-function reikiflow_enqueue_assets()
+
+// Loads styles and scripts
+function reikiflow_enqueue_scripts()
 {
-    $theme_css_path = get_theme_file_path('assets/dist/css/theme.css');
-    $theme_css_uri   = get_theme_file_uri('assets/dist/css/theme.css');
 
-    if (file_exists($theme_css_path)) {
-        wp_enqueue_style(
-            'reikiflow-theme-css',
-            $theme_css_uri,
-            array(),
-            filemtime($theme_css_path)
-        );
-    }
+    wp_enqueue_style('reikiflow-theme-css', get_stylesheet_uri(), [], filemtime(get_stylesheet_directory() . '/style.css'));
 
-    // Load the main theme stylesheet.
-    wp_enqueue_style(
-        'reikiflow-style',
-        get_stylesheet_uri(),
-        array(),
-        filemtime(get_stylesheet_directory() . '/style.css')
-    );
+    // Disable this if you want don't want to include the CSS Framework
+    //wp_enqueue_style( 'css-framework', get_stylesheet_directory_uri() . '/assets/css/css-framework.css', [], filemtime(get_stylesheet_directory() . '/assets/css/css-framework.css') );
+    // Disable this if you want don't want to include the Font Icons CSS
+    wp_enqueue_style('icons-css', get_stylesheet_directory_uri() . '/assets/css/icon-fonts.css', [], wp_get_theme()->get('Version'));
 
-    // Disable this if you do not want to include the CSS framework.
-    // wp_enqueue_style(
-    // 	'css-framework',
-    // 	get_stylesheet_directory_uri() . '/assets/css/css-framework.css',
-    // 	array(),
-    // 	filemtime( get_stylesheet_directory() . '/assets/css/css-framework.css' )
-    // );
-
-    // Disable this if you do not want to include the Font Icons CSS.
-    wp_enqueue_style(
-        'icons-css',
-        get_stylesheet_directory_uri() . '/assets/css/icon-fonts.css',
-        array(),
-        filemtime(get_stylesheet_directory() . '/assets/css/icon-fonts.css')
-    );
-
-    // Uncomment if you need the theme JS.
-    // wp_enqueue_script(
-    // 	'reikiflow-js',
-    // 	get_stylesheet_directory_uri() . '/assets/js/js.js',
-    // 	array( 'jquery' ),
-    // 	'1.0',
-    // 	true
-    // );
+    //wp_enqueue_script('reikiflow-js', get_stylesheet_directory_uri() . '/assets/js/js.js', array('jquery'), '1.0', true);
 }
-add_action('wp_enqueue_scripts', 'reikiflow_enqueue_assets');
+add_action('wp_enqueue_scripts', 'reikiflow_enqueue_scripts');
 
-// Enqueue editor assets.
-function reikiflow_enqueue_editor_assets()
-{
-    $theme_css_path = get_theme_file_path('assets/dist/css/theme.css');
-    $theme_css_uri   = get_theme_file_uri('assets/dist/css/theme.css');
 
-    if (file_exists($theme_css_path)) {
-        wp_enqueue_style(
-            'reikiflow-editor-css',
-            $theme_css_uri,
-            array(),
-            filemtime($theme_css_path)
-        );
-    }
-}
-add_action('enqueue_block_editor_assets', 'reikiflow_enqueue_editor_assets');
-
-// Registers the classes that appear in the dropdown for the CSS Class Manager plugin.
-// Important: in the CSS Class Manager plugin preferences, the "Hide theme.json generated classes" option must be toggled off for these classes to show.
+// This registers the classes that appear the dropdown for the https://wordpress.org/plugins/css-class-manager/ - Tutorial: https://jakson.co/css-framework-tutorial
+// IMPORTANT: in the CSS Class manager plugin preferences, the "Hide theme.json generated classes" option must be toggled off for these classes to show.
+// Disable this if you want don't want to include the CSS Framework
 function reikiflow_add_custom_css($css)
 {
-    $css_framework = '';
-    $css_icons     = '';
 
-    // Disable this if you do not want to include the CSS framework.
-    // if ( file_exists( __DIR__ . '/assets/css/css-framework.css' ) ) {
-    // 	$css_framework = file_get_contents( __DIR__ . '/assets/css/css-framework.css' );
-    // }
-
-    if (file_exists(__DIR__ . '/assets/css/icon-fonts.css')) {
-        $css_icons = file_get_contents(__DIR__ . '/assets/css/icon-fonts.css');
-    }
+    //$css_framework = file_get_contents(__DIR__ . '/assets/css/css-framework.css');
+    $css_icons = file_get_contents(__DIR__ . '/assets/css/icon-fonts.css');
 
     return $css . $css_framework . $css_icons;
 }
 add_filter('css_class_manager_theme_classes_css', 'reikiflow_add_custom_css');
 
-// Register theme blocks from /blocks.
+/**
+ * Register blocks.
+ */
 function reikiflow_register_blocks()
 {
     $blocks_dir = get_theme_file_path('blocks');
 
-    if (! is_dir($blocks_dir)) {
+    if (!is_dir($blocks_dir)) {
         return;
     }
 
@@ -141,7 +95,9 @@ function reikiflow_register_blocks()
 }
 add_action('init', 'reikiflow_register_blocks');
 
-// Register custom block categories.
+/**
+ * Register custom block categories.
+ */
 function reikiflow_block_categories($categories)
 {
     return array_merge(
@@ -156,105 +112,144 @@ function reikiflow_block_categories($categories)
 }
 add_filter('block_categories_all', 'reikiflow_block_categories');
 
-// Register block styles.
-function reikiflow_register_block_styles()
+// Register Block Styles Examples
+function kc_bt_temp_register_block_styles()
 {
+
     if (! function_exists('register_block_style')) {
         return;
     }
 
-    // Blue button.
+    // Blue Button - example of a custom colored button with hover state
     register_block_style(
         'core/button',
         array(
-            'name'       => 'blue-btn',
-            'label'      => __('Blue', 'reikiflow'),
-            'is_default' => false,
+            'name'         => 'blue-btn',
+            'label'        => __('Blue', 'kc-bt-temp'),
+            'is_default'   => false,
         )
     );
 
     wp_enqueue_block_style(
         'core/button',
         array(
-            'handle' => 'reikiflow-blue-btn',
-            'src'    => get_theme_file_uri('assets/css/block-styles/blue-button.css'),
-            'path'   => get_theme_file_path('assets/css/block-styles/blue-button.css'),
+            'handle' => "kc-bt-temp-blue-btn",
+            'src'    => get_theme_file_uri("assets/css/block-styles/blue-button.css"),
+            'path'   => get_theme_file_path("assets/css/block-styles/blue-button.css"),
         )
     );
 
-    // Text button.
+    // Text Only Button
     register_block_style(
         'core/button',
         array(
-            'name'       => 'text-btn',
-            'label'      => __('Text', 'reikiflow'),
-            'is_default' => false,
+            'name'         => 'text-btn',
+            'label'        => __('Text', 'kc-bt-temp'),
+            'is_default'   => false,
         )
     );
 
     wp_enqueue_block_style(
         'core/button',
         array(
-            'handle' => 'reikiflow-text-btn',
-            'src'    => get_theme_file_uri('assets/css/block-styles/text-button.css'),
-            'path'   => get_theme_file_path('assets/css/block-styles/text-button.css'),
+            'handle' => "kc-bt-temp-text-btn",
+            'src'    => get_theme_file_uri("assets/css/block-styles/text-button.css"),
+            'path'   => get_theme_file_path("assets/css/block-styles/text-button.css"),
         )
     );
 
-    // Group style - removes the default top margin.
+    // Group Style - removes the default top margin
     register_block_style(
         'core/group',
         array(
             'name'         => 'starter-group',
-            'label'        => __('Margin Top 0', 'reikiflow'),
+            'label'        => __('margin-top-0', 'kc-bt-temp'),
             'is_default'   => false,
             'inline_style' => '
-			.is-style-starter-group { margin-block-start: 0 !important; }
-			',
+            .is-style-starter-group { margin-block-start: 0 !important; }
+            ',
         )
     );
 
-    // Checkmark list.
+    // Check Mark List - simple unicode list style using "inline_style" as is very simple CSS
     register_block_style(
         'core/list',
         array(
             'name'         => 'checkmark-list',
-            'label'        => __('Checkmark', 'reikiflow'),
+            'label'        => __('Checkmark', 'kc-bt-temp'),
             'inline_style' => '
-			ul.is-style-checkmark-list {
-				list-style-type: "\\2713";
-			}
+            ul.is-style-checkmark-list {
+                list-style-type: "\2713";
+            }
 
-			ul.is-style-checkmark-list li {
-				padding-inline-start: 10px;
-				margin-left: -9px;
-			}
-			',
+            ul.is-style-checkmark-list li {
+                padding-inline-start: 10px;
+                margin-left: -9px;
+            }',
         )
     );
 
-    // Arrow list.
+
+    // Arrow Right List - simple unicode list style
     register_block_style(
         'core/list',
         array(
             'name'         => 'arrow-list',
-            'label'        => __('Arrow Right', 'reikiflow'),
+            'label'        => __('Arrow Right', 'kc-bt-temp'),
             'inline_style' => '
-			ul.is-style-arrow-list {
-				list-style-type: "\\2192";
-			}
+            ul.is-style-arrow-list {
+                list-style-type: "\2192";
+            }
 
-			ul.is-style-arrow-list li {
-				padding-inline-start: 10px;
-				margin-left: -9px;
-			}
-			',
+            ul.is-style-arrow-list li {
+                padding-inline-start: 10px;
+                margin-left: -9px;
+            }',
         )
     );
-}
-add_action('init', 'reikiflow_register_block_styles');
 
-// Language switch shortcode + renderer.
+}
+add_action('init', 'kc_bt_temp_register_block_styles');
+
+
+/**
+ * Enqueue front-end assets.
+ */
+function reikiflow_enqueue_assets()
+{
+    wp_enqueue_style(
+        'reikiflow-theme-css',
+        get_theme_file_uri('assets/css/theme.css'),
+        array(),
+        filemtime(get_theme_file_path('assets/css/theme.css'))
+    );
+}
+add_action('wp_enqueue_scripts', 'reikiflow_enqueue_assets');
+
+/**
+ * Enqueue editor assets.
+ */
+function reikiflow_enqueue_editor_assets()
+{
+    wp_enqueue_style(
+        'reikiflow-editor-css',
+        get_theme_file_uri('assets/css/theme.css'),
+        array(),
+        filemtime(get_theme_file_path('assets/css/theme.css'))
+    );
+}
+add_action('enqueue_block_editor_assets', 'reikiflow_enqueue_editor_assets');
+
+/**
+ * ---------------------------------------------------------------------------
+ * Language Switch
+ * ---------------------------------------------------------------------------
+ * Shortcode + callable function that renders EN | PL links pointing to the
+ * current page's counterpart (assumes /pl/ prefix for Polish). Falls back to
+ * home_url() when there is no request URI (CLI, feed, etc.). Also sets
+ * hreflang attributes for SEO.
+ */
+
 function reikiflow_lang_switch_shortcode()
 {
     ob_start();
@@ -311,7 +306,12 @@ function reikiflow_lang_switch()
     );
 }
 
-// WS Form helpers.
+/**
+ * ---------------------------------------------------------------------------
+ * WS-Form helpers
+ * ---------------------------------------------------------------------------
+ */
+
 function reikiflow_newsletter_form_shortcode()
 {
     $current_locale = determine_locale();
@@ -332,5 +332,11 @@ function reikiflow_contact_form_shortcode()
 }
 add_shortcode('reikiflow_contact_form', 'reikiflow_contact_form_shortcode');
 
-// Require plugins.
+
+/**
+ * ---------------------------------------------------------------------------
+ * Require plugins
+ * ---------------------------------------------------------------------------
+ */
+
 require_once get_theme_file_path('inc/plugins.php');

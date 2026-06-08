@@ -1,41 +1,29 @@
-@import 'tailwindcss';
-
-@source "../templates/**/*.html";
-@source "../parts/**/*.html";
-@source "../patterns/**/*";
-@source "../**/*.php";
-@source "../**/*.js";
-
-@theme {
-  --color-reiki-base: #ffffff;
-  --color-reiki-contrast: #1f2937;
-  --color-reiki-primary: #8b5cf6;
-  --color-reiki-primary-light: #a78bfa;
-  --color-reiki-secondary: #c4b5fd;
-  --color-reiki-muted: #f3f4f6;
-  --color-reiki-dark: #0f172a;
-
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-serif: 'Cardo', serif;
-}
+/*
+ * Theme: ReikiFlow
+ * Front-end & editor styles.
+ * Previously compiled via Tailwind CSS v4; now plain CSS.
+ */
 
 /* ============================================================
    HEADER
    ============================================================ */
 
 .site-header {
-  @apply bg-reiki-base sticky top-0 z-50;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #ffffff;
 }
 
 .site-header .site-logo img {
-  @apply h-auto max-w-none;
+  height: auto;
+  max-width: none;
 }
 
 /* Sticky header offset — push content below */
 .editor-styles-wrapper .site-header + .site-content,
 .site-header-wrapper + .site-content {
-  @apply pt-0;
+  padding-top: 0;
 }
 
 /* ============================================================
@@ -43,17 +31,27 @@
    ============================================================ */
 
 .header-actions {
-  @apply flex items-center gap-6;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 /* ----- Navigation desktop ----- */
 
 .header-actions .wp-block-navigation {
-  @apply gap-6;
+  gap: 1.5rem;
 }
 
 .header-actions .wp-block-navigation .wp-block-navigation-item__content {
-  @apply font-heading text-reiki-contrast no-underline hover:text-reiki-primary transition-colors text-sm;
+  font-family: 'Montserrat', sans-serif;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.15s ease;
+}
+
+.header-actions .wp-block-navigation .wp-block-navigation-item__content:hover {
+  color: #8b5cf6;
 }
 
 /* Navigation current page / ancestor */
@@ -65,22 +63,32 @@
   .wp-block-navigation
   .wp-block-navigation-item.current-menu-ancestor
   > .wp-block-navigation-item__content {
-  @apply text-reiki-primary font-semibold;
+  color: #8b5cf6;
+  font-weight: 600;
 }
 
 /* ----- Dropdown / Submenu ----- */
 
 .wp-block-navigation__submenu-container {
-  @apply bg-reiki-base border border-reiki-muted shadow-lg rounded-sm p-2 min-w-[200px];
+  min-width: 200px;
+  border-radius: 0.25rem;
+  border: 1px solid #f3f4f6;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
 
 .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
-  @apply text-sm px-3 py-2 block rounded-sm;
+  display: block;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
 }
 
 .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover {
-  @apply bg-reiki-muted text-reiki-primary;
+  background-color: #f3f4f6;
+  color: #8b5cf6;
 }
 
 /* Submenu arrow indicator */
@@ -94,50 +102,74 @@
    ============================================================ */
 
 .lang-switch {
-  @apply flex items-center gap-2 font-heading text-sm;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
 }
 
 .lang-link {
-  @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+  color: #1f2937;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.lang-link:hover {
+  color: #8b5cf6;
 }
 
 .lang-link.is-active {
-  @apply text-reiki-primary font-semibold;
+  color: #8b5cf6;
+  font-weight: 600;
 }
 
 .lang-separator {
-  @apply text-reiki-muted;
+  color: #f3f4f6;
 }
 
 /* ============================================================
    MOBILE NAV (hamburger)
    ============================================================ */
 
-/* Responsive nav button — hamburger icon */
 .wp-block-navigation__responsive-container-open,
 .wp-block-navigation__responsive-container-close {
-  @apply text-reiki-contrast;
+  color: #1f2937;
 }
 
 .wp-block-navigation__responsive-container-open svg,
 .wp-block-navigation__responsive-container-close svg {
-  @apply w-6 h-6;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .wp-block-navigation__responsive-container.is-menu-open {
-  @apply bg-reiki-base;
+  background-color: #ffffff;
 }
 
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
-  @apply items-center gap-4 py-8;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
 }
 
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
-  @apply text-lg font-heading text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.125rem;
+  color: #1f2937;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content:hover {
+  color: #8b5cf6;
 }
 
 .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container {
-  @apply border-none shadow-none bg-transparent p-0;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 /* ============================================================
@@ -145,33 +177,61 @@
    ============================================================ */
 
 .site-footer {
-  @apply bg-reiki-muted text-reiki-contrast;
+  background-color: #f3f4f6;
+  color: #1f2937;
 }
 
 .footer-columns {
-  @apply flex flex-wrap justify-between gap-8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .footer-col {
-  @apply flex flex-col gap-2 min-w-[200px] flex-1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+  flex: 1;
 }
 
 .footer-heading {
-  @apply font-heading text-sm uppercase tracking-wider text-reiki-contrast mb-2;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1f2937;
 }
 
 .footer-col a {
-  @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+  color: #1f2937;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-col a:hover {
+  color: #8b5cf6;
 }
 
 .footer-legal,
 .footer-copyright {
-  @apply text-sm text-center text-reiki-contrast;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #1f2937;
 }
 
 .footer-legal a,
 .footer-copyright a {
-  @apply text-reiki-contrast no-underline hover:text-reiki-primary transition-colors;
+  color: #1f2937;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-legal a:hover,
+.footer-copyright a:hover {
+  color: #8b5cf6;
 }
 
 /* ============================================================
@@ -179,29 +239,35 @@
    ============================================================ */
 
 .wp-block-separator.is-style-wide {
-  @apply border-reiki-muted max-w-full;
+  border-color: #f3f4f6;
+  max-width: 100%;
 }
 
 /* Details / FAQ accordion */
 .wp-block-details {
-  @apply border-b border-reiki-muted py-4;
+  border-bottom: 1px solid #f3f4f6;
+  padding: 1rem 0;
 }
 
 .wp-block-details summary {
-  @apply font-heading text-reiki-contrast cursor-pointer font-medium py-2;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #1f2937;
+  font-weight: 500;
 }
 
 .wp-block-details summary:hover {
-  @apply text-reiki-primary;
+  color: #8b5cf6;
 }
 
 .wp-block-details[open] summary {
-  @apply text-reiki-primary;
+  color: #8b5cf6;
 }
 
 /* Cover / CTA — ensure text is readable */
 .wp-block-cover .wp-block-cover__inner-container {
-  @apply w-full;
+  width: 100%;
 }
 
 /* ============================================================
@@ -210,14 +276,17 @@
 
 @media (max-width: 768px) {
   .header-actions {
-    @apply flex-col items-end gap-4;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
   }
 
   .footer-columns {
-    @apply flex-col gap-8;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .footer-col {
-    @apply min-w-full;
+    min-width: 100%;
   }
 }
