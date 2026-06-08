@@ -85,9 +85,9 @@ h4 {
   line-height: 2;
 }
 
-/* Keeps our titles link as the off black color in things like the query loop*/
+/* Keeps our titles link as the contrast color in things like the query loop*/
 .wp-block-post-title :where(a) {
-  color: var(--wp--preset--color--custom-off-black);
+  color: var(--wp--preset--color--contrast);
 }
 
 /* Button hover state  - core button block still does not have this and it can't be done in theme.json! */
@@ -99,20 +99,20 @@ a {
 
 .wp-block-button.is-style-fill .wp-block-button__link:hover,
 #commentform .form-submit.wp-block-button input:hover {
-  background: var(--wp--preset--color--custom-white);
-  color: var(--wp--preset--color--custom-off-black);
+  background: var(--wp--preset--color--base);
+  color: var(--wp--preset--color--contrast);
 }
 
 .wp-block-button .wp-block-button__link:hover {
-  background: var(--wp--preset--color--custom-custom-white);
-  color: var(--wp--preset--color--off-black);
-  border-color: var(--wp--preset--color--custom-off-black);
+  background: var(--wp--preset--color--base);
+  color: var(--wp--preset--color--contrast);
+  border-color: var(--wp--preset--color--contrast);
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link:hover {
-  background: var(--wp--preset--color--custom-off-black);
-  color: var(--wp--preset--color--custom-white);
-  border-color: var(--wp--preset--color--custom-off-black);
+  background: var(--wp--preset--color--contrast);
+  color: var(--wp--preset--color--base);
+  border-color: var(--wp--preset--color--contrast);
 }
 
 a:hover:not(.wp-block-site-title a, .wp-block-button__link.wp-element-button) {
