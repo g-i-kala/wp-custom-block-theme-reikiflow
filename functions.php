@@ -36,7 +36,7 @@ function reikiflow_setup()
         array(
             './style.css',
             // Disable this if you don't want to include the CSS Framework in the editor - see my tutorial here: https://jakson.co/css-framework-tutorial
-            //'/assets/css/css-framework.css',
+            '/assets/css/css-framework.css',
             // Disable this if you don't want to include the Font Icons CSS in the editor - see my tutorial here: https://jakson.co/button-font-icons-tutorial
             '/assets/css/icon-fonts.css'
         )
@@ -56,7 +56,7 @@ function reikiflow_enqueue_scripts()
     wp_enqueue_style('reikiflow-theme-css', get_stylesheet_uri(), [], filemtime(get_stylesheet_directory() . '/style.css'));
 
     // Disable this if you want don't want to include the CSS Framework
-    //wp_enqueue_style( 'css-framework', get_stylesheet_directory_uri() . '/assets/css/css-framework.css', [], filemtime(get_stylesheet_directory() . '/assets/css/css-framework.css') );
+    wp_enqueue_style('css-framework', get_stylesheet_directory_uri() . '/assets/css/css-framework.css', [], filemtime(get_stylesheet_directory() . '/assets/css/css-framework.css'));
     // Disable this if you want don't want to include the Font Icons CSS
     wp_enqueue_style('icons-css', get_stylesheet_directory_uri() . '/assets/css/icon-fonts.css', [], wp_get_theme()->get('Version'));
 
@@ -71,7 +71,7 @@ add_action('wp_enqueue_scripts', 'reikiflow_enqueue_scripts');
 function reikiflow_add_custom_css($css)
 {
 
-    //$css_framework = file_get_contents(__DIR__ . '/assets/css/css-framework.css');
+    $css_framework = file_get_contents(__DIR__ . '/assets/css/css-framework.css');
     $css_icons = file_get_contents(__DIR__ . '/assets/css/icon-fonts.css');
 
     return $css . $css_framework . $css_icons;
