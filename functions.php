@@ -240,15 +240,7 @@ function reikiflow_enqueue_editor_assets()
 }
 add_action('enqueue_block_editor_assets', 'reikiflow_enqueue_editor_assets');
 
-/**
- * ---------------------------------------------------------------------------
- * Language Switch
- * ---------------------------------------------------------------------------
- * Shortcode + callable function that renders EN | PL links pointing to the
- * current page's counterpart (assumes /pl/ prefix for Polish). Falls back to
- * home_url() when there is no request URI (CLI, feed, etc.). Also sets
- * hreflang attributes for SEO.
- */
+// Language switch
 
 function reikiflow_lang_switch_shortcode()
 {
@@ -258,53 +250,27 @@ function reikiflow_lang_switch_shortcode()
 }
 add_shortcode('reikiflow_lang_switch', 'reikiflow_lang_switch_shortcode');
 
-function reikiflow_lang_switch()
+function reikiflow_polylang_switcher_shortcode()
 {
-    $current_locale = determine_locale();
-    $is_english     = ($current_locale === 'en_US');
-
-    $current_path = '';
-    if (isset($_SERVER['REQUEST_URI'])) {
-        $current_path = esc_url_raw(wp_unslash($_SERVER['REQUEST_URI']));
-        $current_path = parse_url($current_path, PHP_URL_PATH) ?: '';
+    if (! function_exists('pll_the_languages')) {
+        return '';
     }
 
-    // Determine EN and PL URLs based on current path.
-    if ($current_path && $current_path !== '/') {
-        $has_pl_prefix = str_starts_with($current_path, '/pl/');
+    ob_start();
 
-        if ($has_pl_prefix) {
-            $en_path = substr($current_path, 3) ?: '/';
-            $pl_path = $current_path;
-        } else {
-            $en_path = $current_path;
-            $pl_path = '/pl' . $current_path;
-        }
+    pll_the_languages(array(
+        'show_flags'       => 1,
+        'show_names'       => 0,
+        'hide_current'       => 1,
+        'display_names_as' => 'name',
+        'dropdown'         => 0,
+        'hide_if_no_translation' => 1,
+    ));
 
-        $en_url = home_url($en_path);
-        $pl_url = home_url($pl_path);
-    } else {
-        $en_url = home_url('/');
-        $pl_url = home_url('/pl/');
-    }
-
-    $en_class = $is_english ? 'lang-link is-active' : 'lang-link';
-    $pl_class = $is_english ? 'lang-link' : 'lang-link is-active';
-
-    printf(
-        '<div class="lang-switch">
-			<a href="%s" class="%s" hreflang="en-US" lang="en-US" aria-label="Switch to English"%s>EN</a>
-			<span class="lang-separator" aria-hidden="true">|</span>
-			<a href="%s" class="%s" hreflang="pl-PL" lang="pl-PL" aria-label="Przełącz na polski"%s>PL</a>
-		</div>',
-        esc_url($en_url),
-        esc_attr($en_class),
-        $is_english ? ' aria-current="true"' : '',
-        esc_url($pl_url),
-        esc_attr($pl_class),
-        ! $is_english ? ' aria-current="true"' : ''
-    );
+    return ob_get_clean();
 }
+add_shortcode('reikiflow_polylang_switcher', 'reikiflow_polylang_switcher_shortcode');
+
 
 /**
  * ---------------------------------------------------------------------------
