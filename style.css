@@ -115,6 +115,11 @@ a {
   border-color: var(--wp--preset--color--contrast);
 }
 
-a:hover:not(.wp-block-site-title a, .wp-block-button__link.wp-element-button) {
+a:hover:not(
+    .wp-block-site-title a,
+    .wp-block-button__link.wp-element-button,
+    .wp-block-navigation a,
+    .wp-block-footer a
+  ) {
   text-decoration: underline !important;
 }
