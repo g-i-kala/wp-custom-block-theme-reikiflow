@@ -169,6 +169,10 @@ a {
   .wp-block-navigation__responsive-container a {
     text-align: center;
   }
+
+  .site-header-wrapper .wp-block-group.site-header__right.site-header__langswitch {
+    display: none;
+  }
 }
 
 /* Polylang Language Switch */
