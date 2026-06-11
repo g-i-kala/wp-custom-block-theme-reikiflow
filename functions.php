@@ -281,7 +281,7 @@ add_shortcode('reikiflow_polylang_switcher', 'reikiflow_polylang_switcher_shortc
 function reikiflow_newsletter_form_shortcode()
 {
     $current_locale = determine_locale();
-    $is_english     = ($current_locale === 'en_US');
+    $is_english     = (in_array($current_locale, ['en_GB', 'en_US']));
     $form_id        = $is_english ? 1 : 3;
 
     return do_shortcode(sprintf('[ws_form id="%d"]', $form_id));

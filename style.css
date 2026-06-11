@@ -319,3 +319,106 @@ a {
     content: none;
   }
 }
+
+/* WS Forms Style */
+/* WS Form base styling */
+.site-footer .footer-col--newsletter .wsf-form.wsf-form-canvas {
+  font-family: var(--wp--preset--font-family--body);
+  color: var(--wp--preset--color--contrast);
+  display: grid;
+  gap: 1rem;
+}
+
+.site-footer .footer-col--newsletter .wsf-grid.wsf-fields {
+  display: grid;
+  gap: 1rem;
+}
+
+.site-footer .footer-col--newsletter .wsf-field-wrapper {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.site-footer .footer-col--newsletter .wsf-label {
+  font-family: var(--wp--preset--font-family--body);
+  font-size: var(--wp--preset--font-size--xs);
+  font-weight: 400;
+  color: var(--wp--preset--color--contrast);
+}
+
+.site-footer .footer-col--newsletter .wsf-field[type='email'],
+.site-footer .footer-col--newsletter .wsf-field[type='text'],
+.site-footer .footer-col--newsletter .wsf-field[type='checkbox'],
+.site-footer .footer-col--newsletter textarea,
+.site-footer .footer-col--newsletter select {
+  font: inherit;
+}
+
+.site-footer .footer-col--newsletter .wsf-field[type='email'],
+.site-footer .footer-col--newsletter .wsf-field[type='text'],
+.site-footer .footer-col--newsletter textarea,
+.site-footer .footer-col--newsletter select {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--wp--preset--color--contrast) 18%, transparent);
+  border-radius: 0.75rem;
+  background: var(--wp--preset--color--base);
+  color: var(--wp--preset--color--contrast);
+  padding: 0.5rem 0.7rem;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.site-footer .footer-col--newsletter .wsf-field[type='email']:focus,
+.site-footer .footer-col--newsletter .wsf-field[type='text']:focus,
+.site-footer .footer-col--newsletter textarea:focus,
+.site-footer .footer-col--newsletter select:focus {
+  outline: none;
+  border-color: var(--wp--preset--color--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--wp--preset--color--accent) 18%, transparent);
+}
+
+.site-footer .footer-col--newsletter .wsf-button {
+  display: inline-flex;
+  width: auto !important;
+  align-self: center;
+  justify-content: center;
+  margin-inline: auto;
+  background: transparent !important;
+  color: var(--wp--preset--color--contrast) !important;
+  border: 2px solid var(--wp--preset--color--contrast) !important;
+  border-radius: 10px;
+  padding-top: 0.6rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.7rem;
+  padding-left: 1.5rem;
+  font-family: var(--wp--preset--font-family--system);
+  font-size: var(--wp--preset--font-size--sm);
+  font-style: normal;
+  font-weight: 400;
+  box-shadow: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.site-footer .footer-col--newsletter .wsf-button:hover {
+  background: var(--wp--preset--color--accent);
+  transform: translateY(-1px);
+}
+
+.site-footer .footer-col--newsletter .wsf-invalid-feedback {
+  margin-top: 0.35rem;
+  font-size: var(--wp--preset--font-size--xs);
+  color: #b91c1c;
+}
+
+.site-footer .footer-col--newsletter .wsf-form input[type='checkbox'].wsf-field {
+  height: 1rem !important;
+  min-height: 1rem !important;
+  width: 1rem !important;
+}
