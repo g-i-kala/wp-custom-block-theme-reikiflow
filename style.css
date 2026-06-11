@@ -206,3 +206,116 @@ a {
 .site-header__langswitch a:hover {
   color: var(--wp--preset--color--accent);
 }
+
+/* Footer styling */
+
+.site-footer {
+  padding-block: var(--wp--preset--spacing--80);
+  background: var(--wp--preset--color--base);
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  margin-bottom: var(--wp--preset--spacing--40);
+}
+
+.footer-col {
+  min-width: 0;
+}
+
+.footer-heading {
+  margin: 0 0 0.75rem;
+  font-size: var(--wp--preset--font-size--sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.footer-list,
+.footer-legal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-list li,
+.footer-legal-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-list a,
+.footer-legal-list a {
+  text-decoration: none;
+  color: var(--wp--preset--color--contrast);
+  transition:
+    color 0.25s ease,
+    text-decoration-color 0.25s ease;
+}
+
+.footer-list a:hover,
+.footer-list a:focus,
+.footer-legal-list a:hover,
+.footer-legal-list a:focus {
+  color: var(--wp--preset--color--accent);
+  text-decoration: underline;
+}
+
+.footer-separator {
+  margin-block: var(--wp--preset--spacing--20);
+  border-color: color-mix(in srgb, var(--wp--preset--color--contrast) 18%, transparent);
+}
+
+.site-footer__bottom {
+  padding-top: var(--wp--preset--spacing--20);
+}
+
+.footer-legal-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  text-align: center;
+  font-size: var(--wp--preset--font-size--sm);
+  opacity: 0.85;
+}
+
+.footer-legal-list li {
+  position: relative;
+}
+
+.footer-legal-list li + li::before {
+  content: '|';
+  position: absolute;
+  left: -0.75rem;
+  color: currentColor;
+  opacity: 0.5;
+}
+
+.footer-col--newsletter {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (max-width: 781px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-legal-list {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-legal-list li + li::before {
+    content: none;
+  }
+}

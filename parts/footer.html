@@ -1,61 +1,75 @@
-<!-- wp:group {"tagName":"footer","align":"full","className":"site-footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
-<footer
-  class="wp-block-group alignfull site-footer"
-  style="
-    padding-top: var(--wp--preset--spacing--80);
-    padding-right: var(--wp--preset--spacing--40);
-    padding-bottom: var(--wp--preset--spacing--40);
-    padding-left: var(--wp--preset--spacing--40);
-  "
->
-  <!-- wp:group {"align":"wide","className":"footer-columns","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
-  <div class="wp-block-group alignwide footer-columns">
-    <!-- wp:group {"className":"footer-col footer-col--links","layout":{"type":"flex","orientation":"vertical"}} -->
+<!-- wp:group {"tagName":"footer","align":"full","className":"site-footer","layout":{"type":"constrained"}} -->
+<footer class="wp-block-group alignfull site-footer">
+  <!-- wp:group {"align":"wide","className":"site-footer__inner","layout":{"type":"default"}} -->
+  <div class="wp-block-group alignwide site-footer__inner">
+    <!-- wp:group {"className":"footer-col footer-col--links","layout":{"type":"constrained"}} -->
     <div class="wp-block-group footer-col footer-col--links">
-      <!-- wp:heading {"level":6,"className":"footer-heading"} -->
-      <h6 class="wp-block-heading footer-heading">Bookings &amp; Contact</h6>
+      <!-- wp:heading {"level":3,"className":"footer-heading"} -->
+      <h3 class="wp-block-heading footer-heading">Bookings &amp; Contact</h3>
       <!-- /wp:heading -->
 
-      <!-- wp:paragraph -->
-      <p>
-        <a href="/booking/">Book a Session</a>
-        |
-        <a href="/booking/#contactform">Contact Us</a>
-      </p>
-      <!-- /wp:paragraph -->
+      <!-- wp:list -->
+      <ul class="wp-block-list footer-list">
+        <!-- wp:list-item -->
+        <li><a href="/booking/">Book a Session</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/booking/#contactform">Contact Us</a></li>
+        <!-- /wp:list-item -->
+      </ul>
+      <!-- /wp:list -->
     </div>
     <!-- /wp:group -->
-    <!-- wp:group {"className":"footer-col footer-col--quicklinks","layout":{"type":"flex","orientation":"vertical"}} -->
+
+    <!-- wp:group {"className":"footer-col footer-col--quicklinks","layout":{"type":"constrained"}} -->
     <div class="wp-block-group footer-col footer-col--quicklinks">
-      <!-- wp:heading {"level":6,"className":"footer-heading"} -->
-      <h6 class="wp-block-heading footer-heading">Quick Links</h6>
+      <!-- wp:heading {"level":3,"className":"footer-heading"} -->
+      <h3 class="wp-block-heading footer-heading">Quick Links</h3>
       <!-- /wp:heading -->
 
-      <!-- wp:paragraph -->
-      <p>
-        <a href="/">Home</a>
-        |
-        <a href="/reiki-about/">Reiki</a>
-        |
-        <a href="/services/">Services</a>
-        |
-        <a href="/pricing/">Pricing</a>
-        |
-        <a href="/services/#faq">FAQ</a>
-        |
-        <a href="/about-me/#resources">Resources</a>
-        |
-        <a href="/about-me/">About</a>
-        |
-        <a href="/booking/">Booking</a>
-      </p>
-      <!-- /wp:paragraph -->
+      <!-- wp:list -->
+      <ul class="wp-block-list footer-list footer-list--quicklinks">
+        <!-- wp:list-item -->
+        <li><a href="/">Home</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/reiki-about/">Reiki</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/services/">Services</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/pricing/">Pricing</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/services/#faq">FAQ</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/about-me/#resources">Resources</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/about-me/">About</a></li>
+        <!-- /wp:list-item -->
+
+        <!-- wp:list-item -->
+        <li><a href="/booking/">Booking</a></li>
+        <!-- /wp:list-item -->
+      </ul>
+      <!-- /wp:list -->
     </div>
     <!-- /wp:group -->
-    <!-- wp:group {"className":"footer-col footer-col--newsletter","layout":{"type":"flex","orientation":"vertical"}} -->
+
+    <!-- wp:group {"className":"footer-col footer-col--newsletter","layout":{"type":"constrained"}} -->
     <div class="wp-block-group footer-col footer-col--newsletter">
-      <!-- wp:heading {"level":6,"className":"footer-heading"} -->
-      <h6 class="wp-block-heading footer-heading">Newsletter</h6>
+      <!-- wp:heading {"level":3,"className":"footer-heading"} -->
+      <h3 class="wp-block-heading footer-heading">Newsletter</h3>
       <!-- /wp:heading -->
 
       <!-- wp:shortcode -->
@@ -66,23 +80,31 @@
   </div>
   <!-- /wp:group -->
 
-  <!-- wp:separator {"className":"is-style-wide"} -->
-  <hr class="wp-block-separator has-alpha-channel-opacity is-style-wide" />
+  <!-- wp:separator {"className":"is-style-wide footer-separator"} -->
+  <hr class="wp-block-separator has-alpha-channel-opacity is-style-wide footer-separator" />
   <!-- /wp:separator -->
 
-  <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"center"}} -->
-  <div class="wp-block-group alignwide" style="padding-top: var(--wp--preset--spacing--20)">
-    <!-- wp:paragraph {"className":"footer-copyright"} -->
-    <p class="footer-copyright">
-      Copyright &copy;
-      <a href="https://karocreative.pl">KaroCreative.pl</a>
-      |
-      <a href="/privacy-policy/">Privacy Policy</a>
-      |
-      <a href="/terms-of-use/">Terms of Use</a>
-    </p>
-  </div>
+  <!-- wp:group {"align":"wide","className":"site-footer__bottom","layout":{"type":"default"}} -->
+  <div class="wp-block-group alignwide site-footer__bottom">
+    <!-- wp:list -->
+    <ul class="wp-block-list footer-legal-list">
+      <!-- wp:list-item -->
+      <li>
+        Copyright &copy;
+        <a href="https://karocreative.pl">KaroCreative.pl</a>
+      </li>
+      <!-- /wp:list-item -->
 
+      <!-- wp:list-item -->
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <!-- /wp:list-item -->
+
+      <!-- wp:list-item -->
+      <li><a href="/terms-of-use/">Terms of Use</a></li>
+      <!-- /wp:list-item -->
+    </ul>
+    <!-- /wp:list -->
+  </div>
   <!-- /wp:group -->
 </footer>
 <!-- /wp:group -->
