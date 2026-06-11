@@ -127,6 +127,12 @@ a {
 }
 
 /* Menu styling */
+
+.site-header {
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
 /* desktop */
 
 .site-header__center .wp-block-navigation__container {
