@@ -48,6 +48,12 @@ function reikiflow_plugin_notice()
         'search'   => 'KC Testimonials Grid',
         'repo_url' => 'https://github.com/g-i-kala/wp-custom-block-kc-testimonials-grid',
     ),
+    array(
+    'name'     => 'K::C ACF Testimonials',
+    'slug'     => 'kc-acf-testimonials/kc-acf-testimonials.php',
+    'search'   => 'K::C ACF Testimonials',
+    'repo_url' => 'https://github.com/g-i-kala/wp-cpt-kc-acf-testimonials',
+),
 );
 
 
