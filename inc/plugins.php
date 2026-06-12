@@ -12,19 +12,44 @@ function reikiflow_plugin_notice()
     }
 
     $required_plugins = array(
-        array(
-            'name'     => 'CSS Class Manager',
-            'slug'     => 'css-class-manager/css-class-manager.php',
-            'search'   => 'CSS Class Manager',
-            'repo_url' => 'https://wordpress.org/plugins/css-class-manager/',
-        ),
-        array(
-            'name'     => 'WS Form Lite',
-            'slug'     => 'ws-form/ws-form.php', // verify the exact main plugin file in your install
-            'search'   => 'WS Form Lite',
-            'repo_url' => 'https://wordpress.org/plugins/ws-form/',
-        ),
-    );
+    array(
+        'name'     => 'CSS Class Manager',
+        'slug'     => 'css-class-manager/css-class-manager.php',
+        'search'   => 'CSS Class Manager',
+        'repo_url' => 'https://wordpress.org/plugins/css-class-manager/',
+    ),
+    array(
+        'name'     => 'WS Form Lite',
+        'slug'     => 'ws-form/ws-form.php',
+        'search'   => 'WS Form Lite',
+        'repo_url' => 'https://wordpress.org/plugins/ws-form/',
+    ),
+    array(
+        'name'     => 'Advanced Custom Fields',
+        'slug'     => 'advanced-custom-fields/acf.php',
+        'search'   => 'ACF',
+        'repo_url' => 'https://wordpress.org/plugins/advanced-custom-fields/',
+    ),
+    array(
+        'name'     => 'Polylang',
+        'slug'     => 'polylang/polylang.php',
+        'search'   => 'Polylang',
+        'repo_url' => 'https://wordpress.org/plugins/polylang/',
+    ),
+    array(
+        'name'     => 'KC Single Testimonial',
+        'slug'     => 'kc-single-testimonial/kc-single-testimonial.php',
+        'search'   => 'KC Single Testimonial',
+        'repo_url' => 'https://github.com/g-i-kala/wp-custom-block-kc-single-testimonial',
+    ),
+    array(
+        'name'     => 'KC Testimonials Grid',
+        'slug'     => 'kc-testimonials-grid/kc-testimonials-grid.php',
+        'search'   => 'KC Testimonials Grid',
+        'repo_url' => 'https://github.com/g-i-kala/wp-custom-block-kc-testimonials-grid',
+    ),
+);
+
 
     $missing = array();
 
@@ -40,19 +65,19 @@ function reikiflow_plugin_notice()
 
     ?>
 <div class="notice notice-warning">
-  <p><strong>ReikiFlow:</strong> The following plugins are recommended for full theme functionality:</p>
-  <ul style="list-style: disc; padding-left: 20px;">
-    <?php foreach ($missing as $plugin) : ?>
-    <li>
-      <?php echo esc_html($plugin['name']); ?>
-      —
-      <a href="<?php echo esc_url($plugin['repo_url']); ?>"
-        target="_blank" rel="noopener noreferrer">
-        View plugin
-      </a>
-    </li>
-    <?php endforeach; ?>
-  </ul>
+    <p><strong>ReikiFlow:</strong> The following plugins are recommended for full theme functionality:</p>
+    <ul style="list-style: disc; padding-left: 20px;">
+        <?php foreach ($missing as $plugin) : ?>
+        <li>
+            <?php echo esc_html($plugin['name']); ?>
+            —
+            <a href="<?php echo esc_url($plugin['repo_url']); ?>"
+                target="_blank" rel="noopener noreferrer">
+                View plugin
+            </a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
 </div>
 <?php
 }
