@@ -8,7 +8,7 @@
  */
 ?>
 <!-- wp:group {"align":"full","className":"rf-one-column-content","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"color":{"background":"var:preset|color|muted"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull rf-one-column-content has-background" style="background-color:var(--wp--preset--color--muted);padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--40)">
+<div class="wp-block-group alignfull rf-one-column-content has-background">
 	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
 	<!-- wp:heading {"level":1} -->
 		<h1 class="wp-block-heading has-text-align-center">Column Heading</h1>
