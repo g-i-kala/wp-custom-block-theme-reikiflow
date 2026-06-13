@@ -282,7 +282,7 @@ function reikiflow_newsletter_form_shortcode()
 {
     $current_locale = determine_locale();
     $is_english     = (in_array($current_locale, ['en_GB', 'en_US']));
-    $form_id        = $is_english ? 1 : 3;
+    $form_id        = $is_english ? 5 : 7;
 
     return do_shortcode(sprintf('[ws_form id="%d"]', $form_id));
 }
@@ -292,7 +292,7 @@ function reikiflow_contact_form_shortcode()
 {
     $current_locale = determine_locale();
     $is_english     = ($current_locale === 'en_US');
-    $form_id        = $is_english ? 2 : 4;
+    $form_id        = $is_english ? 1 : 2;
 
     return do_shortcode(sprintf('[ws_form id="%d"]', $form_id));
 }
