@@ -209,10 +209,6 @@ a {
 
 /* Footer styling */
 
-.site-footer .is-layout-flow > * {
-  margin-block-start: 0;
-}
-
 .site-footer {
   padding-block: var(--wp--preset--spacing--80);
   background: var(--wp--preset--color--base);
@@ -436,6 +432,6 @@ a {
 /* Patterns styling */
 .rf-one-column-content {
   padding-top: var(--wp--preset--spacing--80);
-
   padding-bottom: var(--wp--preset--spacing--80);
+  min-height: 624px;
 }
