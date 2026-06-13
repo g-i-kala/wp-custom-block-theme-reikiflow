@@ -434,4 +434,7 @@ a {
   padding-top: var(--wp--preset--spacing--80);
   padding-bottom: var(--wp--preset--spacing--80);
   min-height: 624px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
