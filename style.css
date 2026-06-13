@@ -438,3 +438,8 @@ a {
   flex-direction: column;
   justify-content: center;
 }
+
+.rf-one-columnt-content.is-layout-constrained > .alignwide {
+  max-width: var(--wp--style--global--wide-size);
+  width: 100%;
+}
