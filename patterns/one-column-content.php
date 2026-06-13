@@ -7,14 +7,16 @@
  * Viewport Width: 1200
  */
 ?>
-<!-- wp:group {"align":"full","className":"rf-one-column-content","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"color":{"background":"var:preset|color|muted"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull rf-one-column-content has-background" >
-	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-	<!-- wp:heading {"level":1} -->
+
+<!-- wp:group {"align":"full","className":"rf-one-column-content has-background","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"color":{"background":"var:preset|color|muted"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull rf-one-column-content has-background">
+	<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:heading {"level":1,"className":"has-text-align-center"} -->
 		<h1 class="wp-block-heading has-text-align-center">Column Heading</h1>
 		<!-- /wp:heading -->
-	<div class="wp-block-group alignwide">
-		<!-- wp:heading {"level":2} -->
+
+		<!-- wp:heading {"level":2,"className":"has-text-align-center"} -->
 		<h2 class="wp-block-heading has-text-align-center">Column Heading</h2>
 		<!-- /wp:heading -->
 
