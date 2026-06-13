@@ -1,20 +1,22 @@
 <?php
 /**
- * Title: One-Column Content
- * Slug: reikiflow/one-column-content
+ * Title: One-Column Content 2
+ * Slug: reikiflow/one-column-content2
  * Categories: reikiflow
  * Description: Single-column content section with a full-width background.
  * Viewport Width: 1200
  */
 ?>
-<!-- wp:group {"align":"full","className":"rf-one-column-content","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"color":{"background":"var:preset|color|muted"}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull rf-one-column-content has-background" style="background-color:var(--wp--preset--color--muted);padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--40)">
-	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
-	<!-- wp:heading {"level":1} -->
+
+<!-- wp:group {"align":"full","className":"rf-one-column-content has-background","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"color":{"background":"var:preset|color|muted"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull rf-one-column-content has-background">
+	<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:heading {"level":1,"className":"has-text-align-center"} -->
 		<h1 class="wp-block-heading has-text-align-center">Column Heading</h1>
 		<!-- /wp:heading -->
-	<div class="wp-block-group alignwide">
-		<!-- wp:heading {"level":2} -->
+
+		<!-- wp:heading {"level":2,"className":"has-text-align-center"} -->
 		<h2 class="wp-block-heading has-text-align-center">Column Heading</h2>
 		<!-- /wp:heading -->
 
