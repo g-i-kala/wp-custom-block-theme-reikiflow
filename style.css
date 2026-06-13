@@ -209,6 +209,10 @@ a {
 
 /* Footer styling */
 
+.site-footer .is-layout-flow > * {
+  margin-block-start: 0;
+}
+
 .site-footer {
   padding-block: var(--wp--preset--spacing--80);
   background: var(--wp--preset--color--base);
