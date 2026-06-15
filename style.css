@@ -430,7 +430,8 @@ a {
 }
 
 /* Patterns styling */
-.rf-one-column-content {
+.rf-one-column-content,
+.rf-faq-accordion {
   padding-top: var(--wp--preset--spacing--80);
   padding-bottom: var(--wp--preset--spacing--80);
   min-height: 624px;
