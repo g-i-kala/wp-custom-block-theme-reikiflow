@@ -186,6 +186,7 @@ a {
   padding-top: var(--wp--preset--spacing--20);
   padding-bottom: var(--wp--preset--spacing--20);
   min-height: 64px;
+  font-size: var(--wp--preset--font-size--sm);
 }
 
 /* Polylang Language Switch */
