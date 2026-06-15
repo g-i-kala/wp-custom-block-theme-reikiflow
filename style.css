@@ -431,6 +431,7 @@ a {
 
 /* Patterns styling */
 .rf-one-column-content,
+.rf-two-column-content,
 .rf-faq-accordion {
   padding-top: var(--wp--preset--spacing--80);
   padding-bottom: var(--wp--preset--spacing--80);
@@ -440,7 +441,9 @@ a {
   justify-content: center;
 }
 
-.rf-one-column-content > .alignwide {
+.rf-one-column-content > .alignwide,
+.rf-two-column-content > .alignwide,
+.rf-faq-accordion > .alignwide {
   max-width: var(--wp--style--global--wide-size);
   width: 100%;
   margin-inline: auto;
