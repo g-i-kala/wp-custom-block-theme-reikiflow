@@ -183,7 +183,9 @@ a {
 
 /* Page Submenus styling */
 .single-page-top-menu {
-  background-color: red;
+  padding-top: var(--wp--preset--spacing--20);
+  padding-bottom: var(--wp--preset--spacing--20);
+  min-height: 64px;
 }
 
 /* Polylang Language Switch */
