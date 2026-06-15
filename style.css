@@ -439,8 +439,7 @@ a {
   justify-content: center;
 }
 
-.rf-one-column-content
-  > .wp-block-group.alignwide.rf-one-column-content__inner.is-layout-constrained {
+.rf-one-column-content > .alignwide {
   max-width: var(--wp--style--global--wide-size);
   width: 100%;
   margin-inline: auto;
