@@ -181,6 +181,11 @@ a {
   }
 }
 
+/* Page Submenus styling */
+.single-page-top-menu {
+  background-color: red;
+}
+
 /* Polylang Language Switch */
 
 .site-header__langswitch {
