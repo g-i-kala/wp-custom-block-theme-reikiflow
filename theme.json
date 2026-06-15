@@ -549,7 +549,7 @@
           }
         },
         "typography": {
-          "fontSize": "var(--wp--preset--font-size--sm)"
+          "fontSize": "var(--wp--preset--font-size--base)"
         }
       },
       "core/paragraph": {
